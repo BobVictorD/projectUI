@@ -1,1 +1,46 @@
-SignIn Page
+<div [ngClass]="signOnError ? 'alert alert-danger' : 'alert alert-success'" role="alert" [style.visibility]="signMesVisi ? '' : 'hidden'">
+  {{signMessage}}
+</div>
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Email" [(ngModel)]="signUser.login">
+</div>
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Password" [(ngModel)]="signUser.password">
+</div>
+<button  type="button" class="btn btn-primary" (click)="onLogin()">Sign In</button>
+
+
+
+
+
+<label data-toggle="modal" data-target="#RegisterModal">Register Now</label>
+
+<!-- Modal -->
+<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="RegisterModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="RegisterModal">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <!-- Message de log / retour utilisateur -->
+        <div [ngClass]="modalOnError ? 'alert alert-danger' : 'alert alert-success'" role="alert" [style.visibility]="modalMesVisi ? '' : 'hidden'">
+          {{modalMessage}}
+        </div>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Email" [(ngModel)]="modalUser.login">
+        </div>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Password" [(ngModel)]="modalUser.password">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="onRegister()">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

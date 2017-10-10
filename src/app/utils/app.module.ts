@@ -1,5 +1,9 @@
+import { AuthGuard } from '../services/auth/authGuard.service';
+import { AccueilPage } from '../pages/Accueil/accueil.page';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppRouting } from './app.routing';
 
@@ -9,8 +13,13 @@ import { HeaderPage } from '../pages/header.page';
 
 import { SignInPage } from '../pages/auth/signIn.page';
 
+import { HttpService } from '../services/http.service';
+import { ApiService } from '../services/api.service';
+import { AuthService } from '../services/auth/auth.service';
+
 @NgModule({
   declarations: [
+    AccueilPage,
     SignInPage,
     HeaderPage,
     FooterPage,
@@ -18,9 +27,16 @@ import { SignInPage } from '../pages/auth/signIn.page';
   ],
   imports: [
     BrowserModule,
-    AppRouting
+    AppRouting,
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    HttpService,
+    AuthGuard,
+    AuthService,
+    ApiService
+  ],
   bootstrap: [MasterPage]
 })
 export class AppModule { }
