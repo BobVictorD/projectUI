@@ -13,8 +13,8 @@ export class ApiService {
 
     constructor(private httpServ: HttpService) {}
 
-    get<T>(url: string): Observable<T> {
-        return this.httpServ.HttpGet<T>(API_BaseUrl + url);
+    get<T>(url: String): Observable<T> {
+        return this.httpServ.HttpGet<T>(API_BaseUrl + url.toString());
     }
 
     post<T, E>(url: string, data: T ): Observable<E | ApiError> {

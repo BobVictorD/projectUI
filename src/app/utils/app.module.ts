@@ -1,3 +1,4 @@
+import { ActiviteService } from '../services/modelService/activite.service';
 import { AuthGuard } from '../services/auth/authGuard.service';
 import { AccueilPage } from '../pages/Accueil/accueil.page';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,6 +33,7 @@ import { AuthService } from '../services/auth/auth.service';
     HttpModule
   ],
   providers: [
+    ActiviteService,
     HttpService,
     AuthGuard,
     AuthService,
