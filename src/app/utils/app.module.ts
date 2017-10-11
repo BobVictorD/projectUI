@@ -1,3 +1,7 @@
+import { AdminUserPage } from '../pages/Administration/User/admin-User.page';
+import { AdminSpotPage } from '../pages/Administration/Spot/admin-Spot.page';
+import { AdminPage } from '../pages/Administration/admin.page';
+import { AdminActivitePage } from '../pages/Administration/Activite/admin-Activite.page';
 import { ActiviteService } from '../services/modelService/activite.service';
 import { AuthGuard } from '../services/auth/authGuard.service';
 import { AccueilPage } from '../pages/Accueil/accueil.page';
@@ -20,6 +24,10 @@ import { AuthService } from '../services/auth/auth.service';
 
 @NgModule({
   declarations: [
+    AdminActivitePage,
+    AdminPage,
+    AdminSpotPage,
+    AdminUserPage,
     AccueilPage,
     SignInPage,
     HeaderPage,
