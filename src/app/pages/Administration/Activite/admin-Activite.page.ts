@@ -10,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 // tslint:disable-next-line:component-class-suffix
 export class AdminActivitePage implements OnInit {
 
-  allActivity: Activite;
-  userActivity: Activite;
+  allActivity: Array<Activite>;
+  userActivity: Array<Activite>;
 
   constructor(private activiteService: ActiviteService) {
 

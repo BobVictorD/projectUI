@@ -14,7 +14,7 @@ export class ActiviteService extends ModelService<Activite> {
     }
 
 
-    getByUser(): Observable<Array<Activite> | ApiError> {
+    getByUser(): Observable<Array<Activite>> {
         return this.api.get<Array<Activite>>(this.baseUrl + '/user');
     }
 
