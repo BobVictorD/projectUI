@@ -10,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 // tslint:disable-next-line:component-class-suffix
 export class AdminActivitePage implements OnInit {
 
-  AllActivity: Activite;
+  allActivity: Activite;
+  userActivity: Activite;
 
   constructor(private activiteService: ActiviteService) {
 
@@ -18,11 +19,10 @@ export class AdminActivitePage implements OnInit {
 
   ngOnInit(): void {
     this.activiteService.getAll().subscribe(p => {
-      this.AllActivity = p;
-      console.log(this.AllActivity);
+      this.allActivity = p;
     });
     this.activiteService.getByUser().subscribe(p => {
-
+      this.userActivity = p;
     });
   }
 

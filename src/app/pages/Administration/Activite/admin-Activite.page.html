@@ -1,5 +1,9 @@
-<p-dataList [value]="AllActivity" [lazy]="true">
+<p-dataList [value]="allActivity" [lazy]="true">
+    <p-header>Vos Activités</p-header>
     <ng-template let-act pTemplate="item">
-        {{act.libelle}}
+        <div>
+            {{act.libelle}}
+        </div>
+        
     </ng-template>
 </p-dataList>

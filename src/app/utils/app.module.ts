@@ -25,6 +25,7 @@ import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth/auth.service';
 
 import {DataListModule} from 'primeng/primeng';
+import {Header} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import {DataListModule} from 'primeng/primeng';
     SignInPage,
     HeaderPage,
     FooterPage,
-    MasterPage,
+    MasterPage
   ],
   imports: [
     BrowserModule,
