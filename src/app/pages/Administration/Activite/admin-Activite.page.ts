@@ -19,6 +19,7 @@ export class AdminActivitePage implements OnInit {
   ngOnInit(): void {
     this.activiteService.getAll().subscribe(p => {
       this.AllActivity = p;
+      console.log(this.AllActivity);
     });
     this.activiteService.getByUser().subscribe(p => {
 

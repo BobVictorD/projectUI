@@ -24,6 +24,8 @@ import { HttpService } from '../services/http.service';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth/auth.service';
 
+import {DataListModule} from 'primeng/primeng';
+
 @NgModule({
   declarations: [
     AdminActivitePage,
@@ -34,14 +36,15 @@ import { AuthService } from '../services/auth/auth.service';
     SignInPage,
     HeaderPage,
     FooterPage,
-    MasterPage
+    MasterPage,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRouting,
     FormsModule,
-    HttpModule
+    HttpModule,
+    DataListModule
   ],
   providers: [
     ActiviteService,

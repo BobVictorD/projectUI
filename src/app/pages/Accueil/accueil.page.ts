@@ -24,11 +24,6 @@ export class AccueilPage implements OnInit {
 
 
     ngOnInit(): void {
-        // Chargement des données de la page.
-        this.actServ.getByUser().subscribe((data: Array<Activite>) => {
-            this.activites = data;
-            console.log(data);
-        });
     }
 
 }
