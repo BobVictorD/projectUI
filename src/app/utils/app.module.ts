@@ -27,6 +27,7 @@ import { activityList } from './app.activityList';
 
 import {DataListModule} from 'primeng/primeng';
 import {Header} from 'primeng/primeng';
+import {MenubarModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {Header} from 'primeng/primeng';
     AppRouting,
     FormsModule,
     HttpModule,
-    DataListModule
+    DataListModule,
+    MenubarModule
   ],
   providers: [
     ActiviteService,

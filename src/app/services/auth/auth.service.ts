@@ -45,7 +45,7 @@ export class AuthService {
     logout() {
       this.tokenService.setToken(null);
       // Send the user back to the singIn after logout
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/SignIn');
     }
 
     isAuth() {
