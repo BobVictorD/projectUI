@@ -6,7 +6,8 @@ import { AdminActivitePage } from '../pages/Administration/Activite/admin-Activi
 import { ActiviteService } from '../services/modelService/activite.service';
 import { AuthGuard } from '../services/auth/authGuard.service';
 import { AccueilPage } from '../pages/Accueil/accueil.page';
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -37,6 +38,7 @@ import { AuthService } from '../services/auth/auth.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRouting,
     FormsModule,
     HttpModule
