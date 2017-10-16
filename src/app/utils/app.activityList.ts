@@ -1,5 +1,5 @@
 // app.component.ts
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Activite } from '../../Model/Activite';
 /*class MyActivity {
   id: number;
@@ -14,6 +14,7 @@ const ACTIVITIES: MyActivity[] = [
   { id: 16, name: 'VTT' }
 ];*/
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'activityList',
   template: `
     <div class="app">
@@ -26,22 +27,22 @@ const ACTIVITIES: MyActivity[] = [
             Details de l'activité.
             <br>
             <!--{{selectedActivity.libelle}}-->
-            
           </td>
         </tr>
       </table>
     </div>
   `
 })
-export class activityList {
-  message: string = 'Hello world!';
-  @Input() activities:Activite[];
+
+export class activityList implements OnInit {
+  message: String = 'Hello world!';
+  @Input() activities: Activite[];
   selectedActivity: Activite;
-  //selectedActivity =;
 
   onSelect(act: Activite): void {
     this.selectedActivity = act;
   }
+
   ngOnInit() {
     console.log('ngOnInit :' + this.activities);
   }

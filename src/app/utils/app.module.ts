@@ -1,4 +1,3 @@
-import { CommonModule } from './common.module';
 import { AdminModule } from './admin.module';
 import { TokenService } from '../services/auth/token.service';
 import { AdminUserPage } from '../pages/Administration/User/admin-User.page';
