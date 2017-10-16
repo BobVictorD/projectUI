@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: 'Accueil', component: AccueilPage, canActivate: [AuthGuard] },
   { path: 'SignIn', component: SignInPage},
   { path: 'Admin', loadChildren: 'app/utils/admin.module#AdminModule'}
-  // { path: 'Admin', loadChildren: () => AdminModule }
 ];
 
 @NgModule({

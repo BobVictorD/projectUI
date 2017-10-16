@@ -1,3 +1,4 @@
+import { ErrorService } from '../services/error.service';
 import { AdminModule } from './admin.module';
 import { TokenService } from '../services/auth/token.service';
 import { AdminUserPage } from '../pages/Administration/User/admin-User.page';
@@ -23,6 +24,10 @@ import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth/auth.service';
 import { UserService } from '../services/modelService/user.service';
 
+import {GrowlModule} from 'primeng/primeng';
+
+import { DataListModule } from 'primeng/primeng';
+
 @NgModule({
   declarations: [
     AccueilPage,
@@ -37,7 +42,9 @@ import { UserService } from '../services/modelService/user.service';
     FormsModule,
     HttpModule,
     AdminModule,
-    AppRouting
+    AppRouting,
+    GrowlModule,
+    DataListModule
   ],
   providers: [
     UserService,
@@ -46,7 +53,8 @@ import { UserService } from '../services/modelService/user.service';
     AuthGuard,
     TokenService,
     AuthService,
-    ApiService
+    ApiService,
+    ErrorService
   ],
   bootstrap: [MasterPage]
 })

@@ -11,8 +11,6 @@ import { FormsModule } from '@angular/forms';
 
 import { DataListModule, InputTextModule } from 'primeng/primeng';
 
-
-
 @NgModule({
   declarations: [
     AdminActivitePage,
