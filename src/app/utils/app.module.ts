@@ -1,7 +1,13 @@
+import { TokenService } from '../services/auth/token.service';
+import { AdminUserPage } from '../pages/Administration/User/admin-User.page';
+import { AdminSpotPage } from '../pages/Administration/Spot/admin-Spot.page';
+import { AdminPage } from '../pages/Administration/admin.page';
+import { AdminActivitePage } from '../pages/Administration/Activite/admin-Activite.page';
 import { ActiviteService } from '../services/modelService/activite.service';
 import { AuthGuard } from '../services/auth/authGuard.service';
 import { AccueilPage } from '../pages/Accueil/accueil.page';
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -19,9 +25,16 @@ import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth/auth.service';
 import { activityList } from './app.activityList';
 
+import {DataListModule} from 'primeng/primeng';
+import {Header} from 'primeng/primeng';
+
 @NgModule({
   declarations: [
     activityList,
+    AdminActivitePage,
+    AdminPage,
+    AdminSpotPage,
+    AdminUserPage,
     AccueilPage,
     SignInPage,
     HeaderPage,
@@ -30,14 +43,17 @@ import { activityList } from './app.activityList';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRouting,
     FormsModule,
-    HttpModule
+    HttpModule,
+    DataListModule
   ],
   providers: [
     ActiviteService,
     HttpService,
     AuthGuard,
+    TokenService,
     AuthService,
     ApiService
   ],
