@@ -16,14 +16,20 @@ export class AccueilPage implements OnInit {
 
     }
 
-    activites: Array<Activite> = [];
-    sites: Array<Spot> = [];
+    activites: Array<Activite>;
+    sites: Array<Spot>;
 
     selectedAct: Activite;
     selectedSite: Spot;
 
 
     ngOnInit(): void {
+        this.actServ.getAll().subscribe(p => {
+            this.activites = p;
+          });
+        this.actServ.getByUser().subscribe(p => {
+            this.activites = p;
+          });
     }
 
 }

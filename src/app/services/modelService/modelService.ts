@@ -10,11 +10,11 @@ export abstract class ModelService<T> {
         this.baseUrl = url;
     }
 
-    getAll(): Observable<Array<T> | ApiError> {
+    getAll(): Observable<Array<T>> {
         return this.api.get<Array<T>>(this.baseUrl);
     }
 
-    getOne(id: number): Observable<T | ApiError> {
+    getOne(id: number): Observable<T> {
         return this.api.get<T>(this.baseUrl + '/' + id);
     }
 }
