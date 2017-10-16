@@ -17,9 +17,11 @@ import { SignInPage } from '../pages/auth/signIn.page';
 import { HttpService } from '../services/http.service';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth/auth.service';
+import { activityList } from './app.activityList';
 
 @NgModule({
   declarations: [
+    activityList,
     AccueilPage,
     SignInPage,
     HeaderPage,
