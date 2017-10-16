@@ -1,3 +1,4 @@
+import { TokenService } from './token.service';
 import { ApiError } from '../../../Model/utils/ApiError';
 import { User } from '../../../Model/User';
 import { ApiService } from '../api.service';
@@ -29,30 +30,26 @@ const API_BaseUrl: String = 'http://localhost:8080';
 @Injectable()
 export class AuthService {
 
-    constructor(private router: Router, private apiServ: ApiService, private http: Http) {}
+    constructor(private router: Router, private apiServ: ApiService, private http: Http, private tokenService: TokenService) {}
 
     login(user: User): Observable<boolean | ApiError> {
-      let token: string;
       // récupération du login dans l'api
       return this.http.post(API_BaseUrl + auth_BaseUrl + loginUrl, user).map(
         res => {
-          token = res['_body'];
-          // mise des informations dans le localStorage
-          localStorage.setItem(localStorageItem, token);
+          this.tokenService.setToken(res['_body']);
           return true;
         }
       );
     }
 
     logout() {
-      // To log out, just remove the token and profile
-      localStorage.removeItem(localStorageItem);
+      this.tokenService.setToken(null);
       // Send the user back to the singIn after logout
       this.router.navigateByUrl('/dashboard');
     }
 
     isAuth() {
-      return true;
+      return this.tokenService.hasToken();
     }
 
     register(user: User): Observable<User | ApiError> {

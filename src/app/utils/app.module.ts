@@ -1,3 +1,4 @@
+import { TokenService } from '../services/auth/token.service';
 import { AdminUserPage } from '../pages/Administration/User/admin-User.page';
 import { AdminSpotPage } from '../pages/Administration/Spot/admin-Spot.page';
 import { AdminPage } from '../pages/Administration/admin.page';
@@ -44,6 +45,7 @@ import { AuthService } from '../services/auth/auth.service';
     ActiviteService,
     HttpService,
     AuthGuard,
+    TokenService,
     AuthService,
     ApiService
   ],

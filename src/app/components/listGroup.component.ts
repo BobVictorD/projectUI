@@ -1,5 +1,5 @@
 import { IData } from './IData';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { ControlValueAccessor } from '@angular/forms';
 // tslint:disable-next-line:component-class-suffix
 export class ListGroupComponent implements ControlValueAccessor {
 
-  private data: Array<IData>;
+  @Input() listSources: Array<IData>;
   private selectedObject: Object;
 
   onChange = (_) => {};
@@ -21,10 +21,8 @@ export class ListGroupComponent implements ControlValueAccessor {
   }
 
   /*implementation NgModel on component ***********************************/
-  writeValue(array: Array<any>): void {
-    this.data = array.map(obj => {
-      return <IData>{label: obj.libelle, value: obj};
-    });
+  writeValue(obj: Object): void {
+    this.selectedObject = obj;
   }
   registerOnChange(fn: any): void {
     this.onChange = fn;
