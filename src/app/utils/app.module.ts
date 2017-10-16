@@ -1,8 +1,7 @@
+import { CommonModule } from './common.module';
+import { AdminModule } from './admin.module';
 import { TokenService } from '../services/auth/token.service';
 import { AdminUserPage } from '../pages/Administration/User/admin-User.page';
-import { AdminSpotPage } from '../pages/Administration/Spot/admin-Spot.page';
-import { AdminPage } from '../pages/Administration/admin.page';
-import { AdminActivitePage } from '../pages/Administration/Activite/admin-Activite.page';
 import { ActiviteService } from '../services/modelService/activite.service';
 import { AuthGuard } from '../services/auth/authGuard.service';
 import { AccueilPage } from '../pages/Accueil/accueil.page';
@@ -23,19 +22,10 @@ import { SignInPage } from '../pages/auth/signIn.page';
 import { HttpService } from '../services/http.service';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth/auth.service';
-import { activityList } from './app.activityList';
-
-import {DataListModule} from 'primeng/primeng';
-import {Header} from 'primeng/primeng';
-import {MenubarModule} from 'primeng/primeng';
+import { UserService } from '../services/modelService/user.service';
 
 @NgModule({
   declarations: [
-    activityList,
-    AdminActivitePage,
-    AdminPage,
-    AdminSpotPage,
-    AdminUserPage,
     AccueilPage,
     SignInPage,
     HeaderPage,
@@ -45,13 +35,13 @@ import {MenubarModule} from 'primeng/primeng';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRouting,
     FormsModule,
     HttpModule,
-    DataListModule,
-    MenubarModule
+    AdminModule,
+    AppRouting
   ],
   providers: [
+    UserService,
     ActiviteService,
     HttpService,
     AuthGuard,
