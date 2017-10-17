@@ -1,9 +1,21 @@
 
-<p-dataList [value]="allActivity" [lazy]="true">
+<p-dataList [value]="activites" [lazy]="true">
     <p-header>Vos Activités</p-header>
     <ng-template let-act pTemplate="item">
-        <div >
+        <div (click)="surClick(act)">
             {{act.libelle}}
         </div>    
     </ng-template>
 </p-dataList>
+<div *ngIf="!isUndefined(selectedAct)">
+    {{selectedAct.libelle}}
+    <p-dataList [value]="sites" [lazy]="true">
+        <p-header>Vos spots</p-header>
+        <ng-template let-site pTemplate="item">
+            <div>
+                {{site.libelle}}
+            </div>    
+        </ng-template>
+    </p-dataList>
+</div>
+
