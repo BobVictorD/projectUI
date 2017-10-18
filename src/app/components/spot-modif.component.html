@@ -1,0 +1,9 @@
+<p-fieldset legend="Spot">
+    <p-pickList [source]="availableSpot" [target]="selectedSpot"
+    [showSourceControls]="false"
+    [showTargetControls]="false">
+        <ng-template let-spot pTemplate="item">
+            {{spot.libelle}}
+        </ng-template>
+    </p-pickList>
+</p-fieldset>

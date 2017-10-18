@@ -7,6 +7,6 @@ export class Faire {
     id: number;
     activite: Activite;
     user: User;
-    spot: Array<Spot>;
+    spots: Array<Spot>;
     niveau: Niveau;
 }

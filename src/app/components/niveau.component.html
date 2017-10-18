@@ -1,0 +1,34 @@
+<p-fieldset legend="Niveau">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+                température (en degrée) : {{temperatureRange[0]}} - {{temperatureRange[1]}}
+            </div>
+            <div class="ui-grid-col-8">
+                <p-slider [(ngModel)]="temperatureRange" (onChange)="sliderChange()" [range]="true" [min]="-5" [max]="40"></p-slider>
+            </div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+                précipitation (en mm) : {{niveau.precipitation}}
+            </div>
+            <div class="ui-grid-col-8">
+                <p-slider [(ngModel)]="niveau.precipitation" (onChange)="sliderChange()" [min]="0" [max]="10"></p-slider>
+            </div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+                vent (en noeud) : {{ventRange[0]}} - {{ventRange[1]}}
+            </div>
+            <div class="ui-grid-col-8">
+                <p-slider [(ngModel)]="ventRange" (onChange)="sliderChange()" [range]="true" [min]="0" [max]="50"></p-slider>                            
+            </div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+                vague (en m) : {{vagueRange[0]/10}} - {{vagueRange[1]/10}}
+            </div>
+            <div class="ui-grid-col-8">
+                <p-slider [(ngModel)]="vagueRange" (onChange)="sliderChange()" [range]="true" [min]="0" [max]="50" ></p-slider>                            
+            </div>
+        </div>
+    </p-fieldset>

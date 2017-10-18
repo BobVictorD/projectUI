@@ -1,3 +1,5 @@
+import { FaireService } from '../services/modelService/faire.service';
+import { SpotService } from '../services/modelService/spot.service';
 import { ErrorService } from '../services/error.service';
 import { AdminModule } from './admin.module';
 import { TokenService } from '../services/auth/token.service';
@@ -8,7 +10,7 @@ import { AccueilPage } from '../pages/Accueil/accueil.page';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRouting } from './app.routing';
@@ -40,6 +42,7 @@ import { DataListModule } from 'primeng/primeng';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AdminModule,
     AppRouting,
@@ -47,6 +50,8 @@ import { DataListModule } from 'primeng/primeng';
     DataListModule
   ],
   providers: [
+    FaireService,
+    SpotService,
     UserService,
     ActiviteService,
     HttpService,

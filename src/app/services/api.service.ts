@@ -26,8 +26,8 @@ export class ApiService {
             });
     }
 
-    post<T, E>(url: string, data: T ): Observable<E | ApiError> {
-        return this.httpServ.HttpPost<T, E>(API_BaseUrl + url, data, this.tokenService.getHeader())
+    post<T, E>(url: String, data: T ): Observable<E> {
+        return this.httpServ.HttpPost<T, E>(API_BaseUrl + url.toString(), data, this.tokenService.getHeader())
             .catch((err: ApiError) => {
                 this.errorService.setErorMessage('ErrorApi', err.message.toString());
                 return Observable.throw(err);

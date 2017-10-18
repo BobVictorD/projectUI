@@ -14,6 +14,10 @@ export abstract class ModelService<T> {
         return this.api.get<Array<T>>(this.baseUrl);
     }
 
+    add(obj: T): Observable<T> {
+        return this.api.post<T, T>(this.baseUrl, obj);
+    }
+
     getOne(id: number): Observable<T> {
         return this.api.get<T>(this.baseUrl + '/' + id);
     }
