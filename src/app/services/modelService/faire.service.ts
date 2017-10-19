@@ -11,4 +11,8 @@ export class FaireService extends ModelService<Faire> {
     constructor(protected api: ApiService) {
         super('/faire');
     }
+
+    getByUser(): Observable<Array<Faire>> {
+        return this.api.get<Array<Faire>>(this.baseUrl + '/user');
+    }
 }
