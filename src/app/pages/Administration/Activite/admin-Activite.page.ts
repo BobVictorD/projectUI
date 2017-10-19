@@ -37,7 +37,7 @@ export class AdminActivitePage implements OnInit {
 
   Addsubmit() {
     console.log(this.addActivity);
-    console.log(JSON.stringify(this.activiteService));
+    // console.log(JSON.stringify(this.activiteService));
     // this.faireService.add(this.addActivity).subscribe();
     this.popUpVisibility = false;
     this.addActivity = undefined;

@@ -28,6 +28,11 @@ export class HttpService {
             .catch(this.handleError);
     }
 
+    HttpDelete(url: string, hearders: Headers): Observable<void> {
+        return this.http.delete(url, { headers: hearders })
+            .catch(this.handleError);
+    }
+
     private handleError(error: any): ErrorObservable {
         console.error('An error occurred', error); // for demo purposes only
         return Observable.throw(error.json() as ApiError);

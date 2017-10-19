@@ -18,7 +18,15 @@ export abstract class ModelService<T> {
         return this.api.post<T, T>(this.baseUrl, obj);
     }
 
+    update(obj: T): Observable<T> {
+        return this.api.post<T, T>(this.baseUrl, obj);
+    }
+
     getOne(id: number): Observable<T> {
         return this.api.get<T>(this.baseUrl + '/' + id);
+    }
+
+    delete(id: number): Observable<void> {
+        return this.api.delete(this.baseUrl + '/' + id);
     }
 }

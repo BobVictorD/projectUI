@@ -34,5 +34,17 @@ export class ApiService {
             });
     }
 
+    delete(url: String): Observable<void> {
+        return this.httpServ.HttpDelete(API_BaseUrl + url.toString(), this.tokenService.getHeader())
+            .map(() => {
+                this.errorService.setInfoMessage('InfoApi', 'L\'élement a bien été supprimé');
+            }
+            )
+            .catch((err: ApiError) => {
+                this.errorService.setErorMessage('ErrorApi', err.message.toString());
+                return Observable.throw(err);
+            });
+    }
+
 
 }

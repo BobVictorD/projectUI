@@ -1,3 +1,4 @@
+import { SpotDetailComponent } from '../components/spot-detail.component';
 import { SpotModifComponent } from '../components/spot-modif.component';
 import { NiveauComponent } from '../components/niveau.component';
 import { AdminRouting } from './admin.routing';
@@ -12,7 +13,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DataListModule, InputTextModule, DialogModule, FieldsetModule } from 'primeng/primeng';
-import { SliderModule, PickListModule, DropdownModule, ButtonModule } from 'primeng/primeng';
+import { SliderModule, PickListModule, DropdownModule, ButtonModule, PanelModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SliderModule, PickListModule, DropdownModule, ButtonModule } from 'prim
     AdminSpotPage,
     AdminUserPage,
     NiveauComponent,
-    SpotModifComponent
+    SpotModifComponent,
+    SpotDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { SliderModule, PickListModule, DropdownModule, ButtonModule } from 'prim
     PickListModule,
     DropdownModule,
     SliderModule,
-    ButtonModule
+    ButtonModule,
+    PanelModule
   ]
 })
 export class AdminModule { }

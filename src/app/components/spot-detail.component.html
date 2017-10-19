@@ -1,0 +1,42 @@
+<p-panel>
+    <p-header>
+        <div class="ui-grid-row">
+            <label class="ui-grid-col-11">Détail</label>
+            <button pButton type="button" (click)="edit()" *ngIf="disabled && editable" icon="fa-pencil" style="width: unset;"></button>
+            <button pButton type="button" (click)="save()" *ngIf="!disabled && editable" icon="fa-floppy-o" style="width: unset;"></button>
+            <button pButton type="button" (click)="delete()" *ngIf="deleted" icon="fa-times" class="ui-button-danger" style="width: unset;"></button>
+        </div>
+        </p-header>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-4 ">
+            <label>Libelle : </label>
+        </div>
+        <div class="ui-grid-col-8">
+            <input type="text" [(ngModel)]="model.libelle" pInput [disabled]="disabled">
+        </div>
+    </div>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-4">
+            <label>Region : </label>
+        </div>
+        <div class="ui-grid-col-8">
+            <input type="number" [(ngModel)]="model.region" pInput [disabled]="disabled">
+        </div>
+    </div>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-4">
+            <label>Lattitude : </label>
+        </div>
+        <div class="ui-grid-col-8">
+            <input type="number" [(ngModel)]="model.xcoord" pInput [disabled]="disabled">
+        </div>
+    </div>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-4">
+            <label>Longitude :</label>
+        </div>
+        <div class="ui-grid-col-8">
+            <input type="number" [(ngModel)]="model.ycoord" pInput [disabled]="disabled">
+        </div>
+    </div>
+</p-panel>

@@ -1,0 +1,31 @@
+<div class="ui-grid-row">
+    <div class="ui-grid-col-6">
+        <p-dataList [value]="allSpots" [lazy]="true">
+            <p-header style="text-align:left">
+                    <div class="ui-grid-row">
+                        <label  class="ui-grid-col-11">Les Spots</label>
+                        <button pButton type="button" icon="fa-plus" (click)="showModal()" style="width: unset"></button>
+                    </div>
+                </p-header>
+            <ng-template let-spo pTemplate="item">
+                <div class="ui-grid-row" style="padding-top: 5px">
+                    <label class="ui-grid-col-11">{{spo.libelle}}</label>
+                    
+                    <button pButton type="button" icon="fa-info" (click)="showDetail(spo)" style="width: unset;"></button>
+                </div>
+            </ng-template>
+        </p-dataList>
+    </div>
+    <div class="ui-grid-col-6">
+        <comp-spotDetail [(ngModel)]="detailSpot" *ngIf="!isUndefined(detailSpot)" 
+                disabled="true" editable="true" deleted="true"
+                (isDelete)="delete()"></comp-spotDetail>
+    </div>
+</div>
+
+<p-dialog header="Ajout d'un spot" [(visible)]="popUpVisibility" [minWidth]="350">
+    <comp-spotDetail [(ngModel)]="popUpSpot" *ngIf="!isUndefined(popUpSpot)"></comp-spotDetail>
+    <div class="ui-rtl" dir="rtl" style="padding-top:5px">
+        <button pButton type="button" (click)="Addsubmit()" label="Ajouter" style="width:unset"></button>            
+    </div>
+</p-dialog>
