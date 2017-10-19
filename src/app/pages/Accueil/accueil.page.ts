@@ -1,8 +1,8 @@
-import { ActiviteService } from '../../services/modelService/activite.service';
-import { SpotService } from '../../services/modelService/spot.service';
+import { FaireService } from '../../services/modelService/faire.service';
 import { ApiService } from '../../services/api.service';
 import { Spot } from '../../../Model/Spot';
 import { Activite } from '../../../Model/Activite';
+import { Faire } from '../../../Model/Faire';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,14 +13,16 @@ import { Component, OnInit } from '@angular/core';
 // tslint:disable-next-line:component-class-suffix
 export class AccueilPage implements OnInit {
 
-    constructor(private actServ: ActiviteService, private spotServ: SpotService) {
+    constructor(private faireServ: FaireService) {
 
     }
-
+    faires: Array<Faire>;
+    selectedFaire: Faire;
+    
     activites: Array<Activite>;
     sites: Array<Spot>;
 
-    selectedAct: Activite;
+
     selectedSite: Spot;
 
     isUndefined(obj:any){
@@ -28,20 +30,13 @@ export class AccueilPage implements OnInit {
     }
 
     surClick(event:any){
-        console.log("Onclick");
-        this.selectedAct = event;
-        this.spotServ.getByActivite( this.selectedAct.id ).subscribe(p => {
-            this.sites = p;
-          });
+        this.selectedFaire = event;
     }
 
     ngOnInit(): void {
-        this.actServ.getByUser().subscribe(p => {
-            this.activites = p;
-          });
-        /*this.spotServ.getByActivite( this.selectedAct.id ).subscribe(p => {
-            this.sites = p;
-          });*/
+        this.faireServ.getByUser().subscribe(p => {
+            this.faires = p;
+        });
     }
 
 }
