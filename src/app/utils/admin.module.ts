@@ -1,3 +1,5 @@
+import { MapComponent } from '../components/map.component';
+import { ActiviteDetailComponent } from '../components/activité-detail.component';
 import { SpotDetailComponent } from '../components/spot-detail.component';
 import { SpotModifComponent } from '../components/spot-modif.component';
 import { NiveauComponent } from '../components/niveau.component';
@@ -14,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DataListModule, InputTextModule, DialogModule, FieldsetModule } from 'primeng/primeng';
 import { SliderModule, PickListModule, DropdownModule, ButtonModule, PanelModule } from 'primeng/primeng';
+import { GMapModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { SliderModule, PickListModule, DropdownModule, ButtonModule, PanelModule
     AdminUserPage,
     NiveauComponent,
     SpotModifComponent,
-    SpotDetailComponent
+    SpotDetailComponent,
+    ActiviteDetailComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,8 @@ import { SliderModule, PickListModule, DropdownModule, ButtonModule, PanelModule
     DropdownModule,
     SliderModule,
     ButtonModule,
-    PanelModule
+    PanelModule,
+    GMapModule
   ]
 })
 export class AdminModule { }

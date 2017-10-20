@@ -1,0 +1,24 @@
+<p-panel>
+    <p-header>
+        <div class="ui-grid-row">
+        <label class="ui-grid-col-11">Détail</label>
+        <button pButton type="button" (click)="edit()" *ngIf="disabled && editable" icon="fa-pencil" style="width: unset;"></button>
+        <button pButton type="button" (click)="save()" *ngIf="!disabled && editable" icon="fa-floppy-o" style="width: unset;"></button>
+        <button pButton type="button" (click)="delete()" *ngIf="deleted" icon="fa-times" class="ui-button-danger" style="width: unset;"></button>
+    </div>
+    </p-header>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-4">
+            <label>Activite* :</label>
+        </div>
+        <div class="ui-grid-col-8">
+            <p-dropdown [options]="allActivity" [(ngModel)]="model.activite" [disabled]="disabled" [autoWidth]="false"></p-dropdown>
+        </div>
+    </div>
+    <div class="ui-grid-row">
+        <comp-spotModif [(ngModel)]="model.spots" class="ui-grid-col-12"></comp-spotModif>
+    </div>
+    <div class="ui-grid-row">
+        <comp-niveau [(ngModel)]="model.niveau" [disabled]="disabled" class="ui-grid-col-12"></comp-niveau>
+    </div>
+</p-panel>

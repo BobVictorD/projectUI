@@ -14,16 +14,22 @@ import { SelectItem } from 'primeng/primeng';
 // tslint:disable-next-line:component-class-suffix
 export class AdminActivitePage implements OnInit {
 
-  allActivity: Array<SelectItem> = [];
-  userActivity: Array<Activite>;
-  selectedSpot: Array<SpotService> = [];
-
-  addActivity: Faire;
+  faires: Array<Faire>;
+  addFaire: Faire;
+  detailFaire: Faire;
 
   popUpVisibility: Boolean = false;
 
-  constructor(private activiteService: ActiviteService, private faireService: FaireService) {
+  constructor(private faireService: FaireService) {}
 
+  ngOnInit(): void {
+    this.load();
+  }
+
+  load() {
+    this.faireService.getByUser().subscribe((p) => {
+      this.faires = p;
+    });
   }
 
   isUndefined(obj: any) {
@@ -31,27 +37,35 @@ export class AdminActivitePage implements OnInit {
   }
 
   showModal() {
-    this.addActivity = new Faire();
+    this.addFaire = new Faire();
     this.popUpVisibility = true;
   }
 
-  Addsubmit() {
-    console.log(this.addActivity);
-    // console.log(JSON.stringify(this.activiteService));
-    // this.faireService.add(this.addActivity).subscribe();
-    this.popUpVisibility = false;
-    this.addActivity = undefined;
+  showDetail(obj: Faire) {
+    this.detailFaire = obj;
   }
 
-  ngOnInit(): void {
-    this.activiteService.getAll().subscribe(p => {
-      p.forEach(item => {
-        this.allActivity.push({label: item.libelle.toString(), value: item});
-      });
+  Addsubmit() {
+    // console.log(JSON.stringify(this.activiteService));
+    this.faireService.add(this.addFaire).subscribe((p) => {
+      this.load();
     });
-    this.activiteService.getByUser().subscribe(p => {
-      this.userActivity = p;
+    this.addFaire = undefined;
+    this.popUpVisibility = false;
+  }
+
+  delete() {
+    this.faireService.delete(this.detailFaire.id).subscribe((p) => {
+      this.load();
     });
+    this.detailFaire = undefined;
+  }
+
+  update() {
+    this.faireService.update(this.detailFaire).subscribe((p) => {
+      this.load();
+    });
+    this.detailFaire = undefined;
   }
 
 }

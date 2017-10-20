@@ -1,28 +1,30 @@
-<p-dataList [value]="userActivity" [lazy]="true">
-    <p-header style="text-align:left">Vos Activités<button pButton type="button" icon="fa-plus" (click)="showModal()" style="float:right"></button></p-header>
-    <ng-template let-act pTemplate="item">
-        <div>
-            {{act.libelle}}
-        </div>
-    </ng-template>
-</p-dataList>
+<div class="ui-grid-row">
+    <div class="ui-grid-col-6">
+        <p-dataList [value]="faires" [lazy]="true">
+            <p-header style="text-align:left">
+                <div class="ui-grid-row">
+                    <label class="ui-grid-col-11">Vos Activités</label>
+                    <button pButton type="button" icon="fa-plus" (click)="showModal()" style="width: unset"></button>
+                </div>
+            </p-header>
+            <ng-template let-faire pTemplate="item">
+                <div class="ui-grid-row" style="padding-top: 5px">
+                    <label class="ui-grid-col-11">{{faire.activite.libelle}}</label>
+                    <button pButton type="button" icon="fa-info" (click)="showDetail(faire)" style="width: unset;"></button>
+                </div>
+            </ng-template>
+        </p-dataList>
+    </div>
+    <div class="ui-grid-col-6">
+        <comp-activiteDetail [(ngModel)]="detailFaire" *ngIf="!isUndefined(detailFaire)" 
+                disabled="true" editable="true" deleted="true"
+                (isDelete)="delete()" (update)="update()"></comp-activiteDetail>
+    </div>
+</div>
 
 <p-dialog header="Ajout d'une activite" [(visible)]="popUpVisibility">
-    <div *ngIf="!isUndefined(addActivity)">
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-2">
-                Activite *:
+    <comp-activiteDetail [(ngModel)]="addFaire" *ngIf="!isUndefined(addFaire)"></comp-activiteDetail>
+        <div class="ui-rtl" dir="rtl" style="padding-top:5px">
+                <button pButton type="button" (click)="Addsubmit()" label="Ajouter" style="width:unset"></button>            
             </div>
-            <div class="ui-grid-col-6">
-                <p-dropdown [options]="allActivity" [(ngModel)]="addActivity.activite" [autoWidth]="false"></p-dropdown>
-            </div>
-        </div>
-        <div class="ui-grid-row">
-            <comp-spotModif [(ngModel)]="addActivity.spots"></comp-spotModif>
-        </div>
-        <div class="ui-grid-row">
-            <comp-niveau [(ngModel)]="addActivity.niveau"></comp-niveau>
-        </div>
-    </div>
-    <button pButton type="button" (click)="Addsubmit()" label="Ajouter"></button>
 </p-dialog>

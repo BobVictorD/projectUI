@@ -1,9 +1,9 @@
-<p-fieldset legend="Spot">
+<p-fieldset legend="Spot" class="ui-grid-col-12">
     <p-pickList [source]="availableSpot" [target]="selectedSpot"
     [showSourceControls]="false"
     [showTargetControls]="false">
         <ng-template let-spot pTemplate="item">
-            {{spot.libelle}}
+            <label>{{spot.libelle}}</label>
         </ng-template>
     </p-pickList>
 </p-fieldset>

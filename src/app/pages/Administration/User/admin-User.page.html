@@ -1,34 +1,42 @@
-<div *ngIf="load">
-    <div class="ui-grid-row">
-        <div class="ui-grid-col-2">
-            Prenom *:
+<p-panel *ngIf="!isUndefined(user)" class="ui-grid-col-6">
+    <p-header>
+        <div class="ui-grid-row">
+            <label class="ui-grid-col-11">{{user.nom}} {{user.prenom}}</label>
+            <button pButton type="button" (click)="edit()" *ngIf="!editable" icon="fa-pencil" style="width: unset;"></button>
+            <button pButton type="button" (click)="update()" *ngIf="editable" icon="fa-floppy-o" style="width: unset;"></button>
         </div>
-        <div class="ui-grid-col-6">
-            <input pInputText type="text" [(ngModel)]="user.prenom" />
+    </p-header>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-3">
+            <label>Prenom *:</label>
+        </div>
+        <div class="ui-grid-col-7">
+            <input pInputText type="text" [(ngModel)]="user.prenom" [disabled]="!editable"/>
         </div>
     </div>
     <div class="ui-grid-row">
-        <div class="ui-grid-col-2">
-            Nom *:
+        <div class="ui-grid-col-3">
+            <label>Nom *:</label>
+            
         </div>
-        <div class="ui-grid-col-6">
-            <input pInputText type="text" [(ngModel)]="user.nom" />
-        </div>
-    </div>
-    <div class="ui-grid-row">
-        <div class="ui-grid-col-2">
-            Login *:
-        </div>
-        <div class="ui-grid-col-6">
-            <input pInputText type="text" [(ngModel)]="user.login" />
+        <div class="ui-grid-col-7">
+            <input pInputText type="text" [(ngModel)]="user.nom" [disabled]="!editable"/>
         </div>
     </div>
     <div class="ui-grid-row">
-        <div class="ui-grid-col-2">
-            Password *:
+        <div class="ui-grid-col-3">
+            <label>Login *:</label>
         </div>
-        <div class="ui-grid-col-6">
-            <input pInputText type="text" [(ngModel)]="user.password" />
+        <div class="ui-grid-col-7">
+            <input pInputText type="text" [(ngModel)]="user.login" [disabled]="!editable"/>
         </div>
     </div>
-</div>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-3">
+            <label>Password *:</label>
+        </div>
+        <div class="ui-grid-col-7">
+            <input pInputText type="password" pPassword [(ngModel)]="user.password" [disabled]="!editable"/>
+        </div>
+    </div>
+</p-panel>

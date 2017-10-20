@@ -1,5 +1,5 @@
 import { Niveau } from '../../Model/Niveau';
-import { Component, OnInit, Provider, forwardRef, } from '@angular/core';
+import { Component, OnInit, Provider, forwardRef, Input, } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
@@ -16,6 +16,7 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 })
 // tslint:disable-next-line:component-class-suffix
 export class NiveauComponent implements ControlValueAccessor {
+    @Input() disabled: Boolean = false;
     temperatureRange: number[];
     ventRange: number[];
     vagueRange: number[];

@@ -11,14 +11,32 @@ import { Component, OnInit } from '@angular/core';
 export class AdminUserPage implements OnInit {
 
   user: User;
-  load: Boolean = false;
+  editable: Boolean = false;
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
+    this.load();
+  }
+
+  isUndefined(obj: any) {
+    return obj === undefined;
+  }
+
+  load() {
     this.userService.getMe().subscribe(p => {
       this.user = p;
-      this.load = true;
     });
+  }
+
+  edit() {
+    this.editable = true;
+  }
+
+  update() {
+    this.userService.update(this.user).subscribe((p) => {
+      this.user = p;
+    });
+    this.editable = false;
   }
 }
