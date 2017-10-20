@@ -28,7 +28,7 @@ import { UserService } from '../services/modelService/user.service';
 
 import {GrowlModule} from 'primeng/primeng';
 
-import { DataListModule } from 'primeng/primeng';
+import { DataListModule, ButtonModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { DataListModule } from 'primeng/primeng';
     AdminModule,
     AppRouting,
     GrowlModule,
-    DataListModule
+    DataListModule,
+    ButtonModule
   ],
   providers: [
     FaireService,

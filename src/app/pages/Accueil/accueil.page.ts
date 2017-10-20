@@ -13,30 +13,29 @@ import { Component, OnInit } from '@angular/core';
 // tslint:disable-next-line:component-class-suffix
 export class AccueilPage implements OnInit {
 
-    constructor(private faireServ: FaireService) {
-
-    }
     faires: Array<Faire>;
     selectedFaire: Faire;
-    
-    activites: Array<Activite>;
-    sites: Array<Spot>;
+    selectedSpot: Spot;
 
+    constructor(private faireServ: FaireService) {}
 
-    selectedSite: Spot;
-
-    isUndefined(obj:any){
-        return obj==undefined;
-    }
-
-    surClick(event:any){
-        this.selectedFaire = event;
-    }
 
     ngOnInit(): void {
         this.faireServ.getByUser().subscribe(p => {
             this.faires = p;
         });
+    }
+
+    isUndefined(obj: any) {
+        return obj === undefined;
+    }
+
+    selectFaire(event: Faire) {
+        this.selectedFaire = event;
+    }
+
+    selectSite(event: Spot) {
+        this.selectedSpot = event;
     }
 
 }
