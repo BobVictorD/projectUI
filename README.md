@@ -1,11 +1,11 @@
 # ProjectUI
 
-Cette partie représente la partie client du projet de TAA/GLI qui consiste a créer une application de consultation d'activité et de météo.
+Cette partie représente la partie client du projet de TAA/GLI qui consiste à créer une application qui signale aux utilisateurs si ils peuvent pratiquer leurs activités en fonction de la météo du secteur géographique.
 
-Cette partie est construite en ANGULAR 4 TypeScript et a une base généré avec Angular-cli.
+Cette partie est construite en ANGULAR 4 TypeScript et à une base générée avec Angular-cli.
 
-Le systeme de fichier sur le concept suivant:
-    - par type (Composant,directives...)
+Le systeme de fichiers est sur le concept suivant:
+    - par type (Composants, directives...)
     - puis par arborescence de l'application.
 ## Lancement de l'application
 
@@ -13,7 +13,7 @@ Le systeme de fichier sur le concept suivant:
     - Lancement de la partie serveur (https://github.com/BobVictorD/Project).
 
 ### Demarrage de l'application
-    - Executer la commande 'npm install' a la racine de l'application.
-    - Executer la commande 'ng serve' a la racine du projet.
-    - L'application est lancer a l'adresse suivante : 'http://localhost:4200/'.
-    - Connection a l'appliction a l'aide des identifiant 'test' - 'test'.
+    - Executer la commande 'npm install' à la racine de l'application.
+    - Executer la commande 'ng serve' à la racine du projet.
+    - L'application est lancée à l'adresse suivante : 'http://localhost:4200/'.
+    - Connection à l'appliction à l'aide des identifiants 'test' / 'test'.
