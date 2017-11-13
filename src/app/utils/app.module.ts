@@ -28,7 +28,7 @@ import { UserService } from '../services/modelService/user.service';
 
 import {GrowlModule} from 'primeng/primeng';
 
-import { DataListModule, ButtonModule } from 'primeng/primeng';
+import { DataListModule, ButtonModule, PanelModule, DialogModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,9 @@ import { DataListModule, ButtonModule } from 'primeng/primeng';
     AppRouting,
     GrowlModule,
     DataListModule,
+    ButtonModule,
+    PanelModule,
+    DialogModule,
     ButtonModule
   ],
   providers: [

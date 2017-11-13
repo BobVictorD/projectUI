@@ -16,13 +16,7 @@ import { Router } from '@angular/router';
     private modalUser: User = new User();
     private signUser: User = new User();
 
-    private modalMessage: String;
-    private modalOnError: Boolean = false;
-    private modalMesVisi: Boolean = false;
-
-    private signMessage: String;
-    private signOnError: Boolean = false;
-    private signMesVisi: Boolean = false;
+    private popUpVisibility: Boolean = false;
 
 
     constructor(private authServ: AuthService, private router: Router) {
@@ -32,28 +26,23 @@ import { Router } from '@angular/router';
       this.authServ.login(this.signUser).subscribe(
         a => {
           this.router.navigate(['/Accueil']);
-          this.signOnError = false;
-          this.signMesVisi = true;
-          this.signMessage = 'Vous êtes bien enregistré';
         },
         (error: ApiError) => {
-          this.signOnError = true;
-          this.signMesVisi = true;
-          this.signMessage = error.message; }
+          console.log(error);
+          }
       );
   }
+  showAdd() {
+    this.popUpVisibility = true;
+  }
 
-    onRegister() {
-        this.authServ.register(this.modalUser).subscribe(
-          a => {
-            this.modalOnError = false;
-            this.modalMesVisi = true;
-            this.modalMessage = 'Vous êtes bien enregistré';
-          },
-          (error: ApiError) => {
-            this.modalOnError = true;
-            this.modalMesVisi = true;
-            this.modalMessage = error.message; }
-        );
-    }
+  onRegister() {
+      this.authServ.register(this.modalUser).subscribe(
+        a => {
+          this.popUpVisibility = false;
+        },
+        (error: ApiError) => {
+        }
+      );
+  }
   }

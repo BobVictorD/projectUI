@@ -24,6 +24,7 @@ export class ErrorService {
     }
 
     setInfoMessage(title: string, value: string) {
+        console.log(value);
         this.errorSuject.next({severity: 'info', summary: title , detail: value});
     }
 

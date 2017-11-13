@@ -1,27 +1,19 @@
 # ProjectUI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
+Cette partie représente la partie client du projet de TAA/GLI qui consiste a créer une application de consultation d'activité et de météo.
 
-## Development server
+Cette partie est construite en ANGULAR 4 TypeScript et a une base généré avec Angular-cli.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Le systeme de fichier sur le concept suivant:
+    - par type (Composant,directives...)
+    - puis par arborescence de l'application.
+## Lancement de l'application
 
-## Code scaffolding
+### Prérequis
+    - Lancement de la partie serveur (https://github.com/BobVictorD/Project).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Demarrage de l'application
+    - Executer la commande 'npm install' a la racine de l'application.
+    - Executer la commande 'ng serve' a la racine du projet.
+    - L'application est lancer a l'adresse suivante : 'http://localhost:4200/'.
+    - Connection a l'appliction a l'aide des identifiant 'test' - 'test'.

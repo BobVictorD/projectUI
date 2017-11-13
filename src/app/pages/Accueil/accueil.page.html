@@ -26,28 +26,11 @@
         </p-dataList>
     </div>
 </div>
-
-
-
-
-<!--<p-dataList [value]="faires" [lazy]="true">
-    <p-header>Vos Activités</p-header>
-    <ng-template let-faire pTemplate="item">
-        <div (click)="surClick(faire)">
-            {{faire.activite.libelle}}  
-        </div>    
-    </ng-template>
-</p-dataList>
- 
-<div *ngIf="!isUndefined(selectedFaire)">
-    {{selectedFaire.activite.libelle}}
-    <p-dataList [value]="selectedFaire.spots" [lazy]="true">
-        <p-header>Vos spots</p-header>
-        <ng-template let-spot pTemplate="item">
-            <div>
-                {{spot.libelle}}
-            </div>    
-        </ng-template>
-    </p-dataList>
-</div>-->
+<p-panel class="ui-grid-row" *ngIf="!isUndefined(selectedSpot)">
+    <p-header>
+        <div class="ui-grid-row">
+        <label class="ui-grid-col-11">conditons of {{selectedSpot.libelle}}</label>
+    </div>
+    </p-header>
+</p-panel>
 

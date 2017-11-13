@@ -1,3 +1,4 @@
+import { ErrorService } from '../error.service';
 import { TokenService } from './token.service';
 import { ApiError } from '../../../Model/utils/ApiError';
 import { User } from '../../../Model/User';
@@ -30,16 +31,23 @@ const API_BaseUrl: String = 'http://localhost:8080';
 @Injectable()
 export class AuthService {
 
-    constructor(private router: Router, private apiServ: ApiService, private http: Http, private tokenService: TokenService) {}
+    constructor(private router: Router,
+       private apiServ: ApiService,
+        private http: Http,
+         private tokenService: TokenService,
+        private errorService: ErrorService) {}
 
-    login(user: User): Observable<boolean | ApiError> {
+    login(user: User): Observable<boolean> {
       // récupération du login dans l'api
       return this.http.post(API_BaseUrl + auth_BaseUrl + loginUrl, user).map(
         res => {
           this.tokenService.setToken(res['_body']);
           return true;
         }
-      );
+      ).catch((err: ApiError) => {
+        this.errorService.setErorMessage('Authentcation', err.message.toString());
+        return Observable.throw(err);
+    });
     }
 
     logout() {
@@ -53,7 +61,10 @@ export class AuthService {
     }
 
     register(user: User): Observable<User | ApiError> {
-      return this.apiServ.post<User, User>(auth_BaseUrl + registerUrl, user);
+      return this.apiServ.post<User, User>(auth_BaseUrl + registerUrl, user).map( p => {
+          this.errorService.setInfoMessage('Authentication', 'Enregistrement reussi, vous pouvais vous connecter.');
+          return p;
+      });
     }
 
 }
